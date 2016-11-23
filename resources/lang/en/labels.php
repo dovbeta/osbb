@@ -73,6 +73,20 @@ return [
                 ],
             ],
         ],
+        'building' => [
+            'flats' => [
+                'management' => 'Flats management',
+                'active' => 'All available flats',
+                'table' => [
+                    'id' => 'Id',
+                    'number' => 'Number',
+                    'entrance' => 'Entrance',
+                    'floor' => 'Floor',
+                    'area' => 'Area',
+                    'rooms_number' => 'Rooms',
+                ]
+            ]
+        ]
     ],
 
     'frontend' => [

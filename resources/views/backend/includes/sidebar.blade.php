@@ -40,6 +40,10 @@
                 </li>
             @endauth
 
+            <li class="{{ Active::pattern('admin/building/*') }}">
+                {{ link_to_route('admin.building.flat.index', trans('menus.backend.building.title')) }}
+            </li>
+
             <li class="{{ Active::pattern('admin/log-viewer*') }} treeview">
                 <a href="#">
                     <span>{{ trans('menus.backend.log-viewer.main') }}</span>

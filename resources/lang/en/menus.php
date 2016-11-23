@@ -46,6 +46,10 @@ return [
             'dashboard' => 'Dashboard',
             'general' => 'General',
         ],
+
+        'building' => [
+            'title' => 'Building'
+        ]
     ],
 
     'language-picker' => [
