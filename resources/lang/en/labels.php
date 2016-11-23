@@ -75,6 +75,7 @@ return [
         ],
         'building' => [
             'flats' => [
+                'title' => 'Flats',
                 'management' => 'Flats management',
                 'active' => 'All available flats',
                 'table' => [

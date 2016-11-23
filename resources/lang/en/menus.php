@@ -48,7 +48,11 @@ return [
         ],
 
         'building' => [
-            'title' => 'Building'
+            'title' => 'Building',
+            'flats' => [
+                'main' => "Flats",
+                'export' => "Export",
+            ]
         ]
     ],
 

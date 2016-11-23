@@ -24,7 +24,7 @@ return [
     |
     */
 
-    'name' => 'Laravel 5 Bootstrap',
+    'name' => env('APP_NAME', 'OSBB'),
 
     /*
     |--------------------------------------------------------------------------
@@ -201,6 +201,8 @@ return [
          * Has to override the Collective\Html\HtmlServiceProvider form singleton
          */
         App\Providers\MacroServiceProvider::class,
+
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*
@@ -257,5 +259,6 @@ return [
         'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Html'        => Collective\Html\HtmlFacade::class,
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
+        'Excel'       => Maatwebsite\Excel\Facades\Excel::class,
     ],
 ];

@@ -14,5 +14,6 @@ Route::group([
          * For DataTables
          */
         Route::get('flat/get', 'FlatController@get')->name('admin.building.flat.get');
+        Route::get('flats/export', 'FlatController@export')->name('admin.building.flats.export');
     });
 });

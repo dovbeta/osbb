@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Building\Flat;
 use App\Http\Requests\Backend\Building\Flat\ManageFlatRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\Backend\Building\Flat\FlatRepositoryContract;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\Datatables\Facades\Datatables;
 
 /**
@@ -46,5 +47,15 @@ class FlatController extends Controller
             ->make(true);
     }
 
-
+    /**
+     * @param ManageFlatRequest $request
+     */
+    public function export(ManageFlatRequest $request)
+    {
+        return Excel::create(config('app.name') . ' - ' . trans('labels.backend.building.flats.title'), function($excel) {
+            $excel->sheet(trans('labels.backend.building.flats.title'), function($sheet) {
+                $sheet->fromModel($this->flats->getForDataTable());
+            });
+        })->export('xls');
+    }
 }
