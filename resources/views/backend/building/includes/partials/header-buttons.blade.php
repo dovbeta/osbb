@@ -6,28 +6,7 @@
 
         <ul class="dropdown-menu" role="menu">
             <li>{{ link_to_route('admin.building.flats.export', trans('menus.backend.building.flats.export')) }}</li>
-
-            @permission('manage-users')
-                <li>{{ link_to_route('admin.access.user.create', trans('menus.backend.access.users.create')) }}</li>
-            @endauth
-
-            <li class="divider"></li>
-            <li>{{ link_to_route('admin.access.user.deactivated', trans('menus.backend.access.users.deactivated')) }}</li>
-            <li>{{ link_to_route('admin.access.user.deleted', trans('menus.backend.access.users.deleted')) }}</li>
-        </ul>
-    </div><!--btn group-->
-
-    <div class="btn-group">
-        <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            {{ trans('menus.backend.access.roles.main') }} <span class="caret"></span>
-        </button>
-
-        <ul class="dropdown-menu" role="menu">
-            <li>{{ link_to_route('admin.access.role.index', trans('menus.backend.access.roles.all')) }}</li>
-
-            @permission('manage-roles')
-                <li>{{ link_to_route('admin.access.role.create', trans('menus.backend.access.roles.create')) }}</li>
-            @endauth
+            <li>{{ link_to_route('admin.building.flats.import', trans('menus.backend.building.flats.import')) }}</li>
         </ul>
     </div><!--btn group-->
 </div><!--pull right-->

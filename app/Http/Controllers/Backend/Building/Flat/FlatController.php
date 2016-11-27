@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend\Building\Flat;
 
+use App\Http\Requests\Backend\Building\Flat\ImportFlatsRequest;
 use App\Http\Requests\Backend\Building\Flat\ManageFlatRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\Backend\Building\Flat\FlatRepositoryContract;
@@ -57,5 +58,30 @@ class FlatController extends Controller
                 $sheet->fromModel($this->flats->getForDataTable());
             });
         })->export('xls');
+    }
+
+    /**
+     * @param ManageFlatRequest $request
+     *
+     * @return string
+     */
+    public function import(ManageFlatRequest $request)
+    {
+        return view('backend.building.flat.import');
+    }
+
+    /**
+     * @param ImportFlatsRequest $request
+     */
+    public function postImport(ImportFlatsRequest $request)
+    {
+        Excel::load($request->file('excel')->getPathname(), function($reader) {
+            $reader->each(function($sheet) {
+                $sheet->each(function($row) {
+                    $this->flats->create($row);
+                });
+            });
+        });
+        return redirect()->route('admin.building.flat.index')->withFlashSuccess(trans('alerts.backend.flats.imported'));
     }
 }

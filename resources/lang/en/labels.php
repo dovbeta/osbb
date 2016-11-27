@@ -77,6 +77,11 @@ return [
             'flats' => [
                 'title' => 'Flats',
                 'management' => 'Flats management',
+                'import' => [
+                    'title' => 'Import',
+                    'description' => 'Import all flats from Excel file',
+                    'button' => 'Import',
+                ],
                 'active' => 'All available flats',
                 'table' => [
                     'id' => 'Id',

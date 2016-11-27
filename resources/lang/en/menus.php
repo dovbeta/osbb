@@ -52,6 +52,7 @@ return [
             'flats' => [
                 'main' => "Flats",
                 'export' => "Export",
+                'import' => "Import",
             ]
         ]
     ],

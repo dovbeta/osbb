@@ -39,5 +39,6 @@ return [
 
         'save' => 'Save',
         'view' => 'View',
+        'import' => 'Import',
     ],
 ];
