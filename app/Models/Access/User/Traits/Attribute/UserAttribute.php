@@ -49,6 +49,9 @@ trait UserAttribute
      */
     public function getPicture($size = false)
     {
+        if ($this->hasProvider('facebook') && $avatar = $this->getProvider('facebook')->avatar) {
+            return $avatar;
+        }
         if (! $size) $size = config('gravatar.default.size');
         return gravatar()->get($this->email, ['size' => $size]);
     }
@@ -66,6 +69,18 @@ trait UserAttribute
         }
 
         return false;
+    }
+
+
+    public function getProvider($provider)
+    {
+        foreach ($this->providers as $p) {
+            if ($p->provider == $provider) {
+                return $p;
+            }
+        }
+
+        return null;
     }
 
     /**
