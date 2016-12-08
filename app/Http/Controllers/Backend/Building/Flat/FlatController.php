@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Building\Flat;
 
 use App\Http\Requests\Backend\Building\Flat\ImportFlatsRequest;
+use App\Http\Requests\Backend\Building\Flat\LinkUsersRequest;
 use App\Http\Requests\Backend\Building\Flat\ManageFlatRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Building\Flat\UpdateFlatRequest;
@@ -119,5 +120,29 @@ class FlatController extends Controller
     {
         $this->flats->update($flat, $request->all());
         return redirect()->route('admin.building.flat.view', $flat)->withFlashSuccess(trans('alerts.backend.flats.updated'));
+    }
+
+    /**
+     * @param Flat $flat
+     * @param LinkUsersRequest $request
+     * @return mixed
+     */
+    public function linkUsers(Flat $flat, LinkUsersRequest $request)
+    {
+        $flat->users()->detach();
+        $flat->users()->attach($request->only('users')['users']);
+        return redirect()->route('admin.building.flat.view', $flat)->withFlashSuccess(trans('alerts.backend.flats.updated'));
+    }
+
+
+
+    /**
+     * @param Flat $flat
+     * @return mixed
+     */
+    public function users(Flat $flat)
+    {
+        return view('backend.building.flat.users')
+            ->withFlat($flat);
     }
 }

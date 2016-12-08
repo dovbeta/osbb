@@ -42,4 +42,8 @@ return [
         'view' => 'View',
         'import' => 'Import',
     ],
+
+    'flat' => [
+        'users' => 'Users management',
+    ]
 ];

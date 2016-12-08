@@ -15,6 +15,7 @@
             <h3 class="box-title">{{ trans('labels.backend.building.flats.number',['number'=>$flat->number]) }}</h3>
 
             <div class="box-tools pull-right">
+                <a href="{{ route('admin.building.flat.users', $flat) }}" class="btn btn-xs btn-primary"><i class="fa fa-user" data-toggle="tooltip" data-placement="top" title="{{ trans('buttons.flat.users') }}"></i></a>
                 <a href="{{ route('admin.building.flat.edit', $flat) }}" class="btn btn-xs btn-primary"><i class="fa fa-edit" data-toggle="tooltip" data-placement="top" title="{{ trans('buttons.general.crud.edit') }}"></i></a>
 
             </div><!--box-tools pull-right-->
@@ -38,6 +39,22 @@
                     {{ trans('labels.backend.building.flats.table.rooms_number') }}: {{$flat->rooms_number}}
                 </li>
             </ul>
+
+            <h4>{{ trans('labels.backend.building.flats.users') }}</h4>
+
+            @if ($flat->users()->count() > 0)
+                <ul>
+                @foreach($flat->users()->get() as $user)
+                    <li>
+                        <a href="{{ route('admin.access.user.edit', $user) }}" class="">
+                        {{ $user->name }}
+                        </a>
+                    </li>
+                @endforeach
+                </ul>
+            @else
+                {{ trans('labels.backend.access.users.no_roles') }}
+            @endif
         </div>
     </div>
 @stop

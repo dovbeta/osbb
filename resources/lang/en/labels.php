@@ -92,7 +92,8 @@ return [
                     'floor' => 'Floor',
                     'area' => 'Area',
                     'rooms_number' => 'Rooms',
-                ]
+                ],
+                'users' => 'Linked users',
             ]
         ]
     ],
