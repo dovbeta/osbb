@@ -77,6 +77,7 @@ return [
             'flats' => [
                 'title' => 'Flats',
                 'management' => 'Flats management',
+                'number' => 'Flat #:number',
                 'import' => [
                     'title' => 'Import',
                     'description' => 'Import all flats from Excel file',

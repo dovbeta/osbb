@@ -35,6 +35,7 @@ return [
             'delete' => 'Delete',
             'edit' => 'Edit',
             'update' => 'Update',
+            'view' => 'View',
         ],
 
         'save' => 'Save',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Building\Flat;
 use App\Http\Requests\Backend\Building\Flat\ImportFlatsRequest;
 use App\Http\Requests\Backend\Building\Flat\ManageFlatRequest;
 use App\Http\Controllers\Controller;
+use App\Models\Building\Flat\Flat;
 use App\Repositories\Backend\Building\Flat\FlatRepositoryContract;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\Datatables\Facades\Datatables;
@@ -83,5 +84,9 @@ class FlatController extends Controller
             });
         });
         return redirect()->route('admin.building.flat.index')->withFlashSuccess(trans('alerts.backend.flats.imported'));
+    }
+
+    public function view(Flat $flat) {
+        return view('backend.building.flat.view')->withFlat($flat);
     }
 }

@@ -8,4 +8,8 @@ namespace App\Models\Building\Flat\Traits\Relationship;
  */
 trait FlatRelationship
 {
+    public  function users()
+    {
+        return $this->belongsToMany('App\Models\Access\User\User')->withTimeStamps();
+    }
 }
