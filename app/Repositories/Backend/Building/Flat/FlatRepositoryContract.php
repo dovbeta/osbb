@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Backend\Building\Flat;
 
+use App\Exceptions\GeneralException;
 use App\Models\Building\Flat\Flat;
 
 /**

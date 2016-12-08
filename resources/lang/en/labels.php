@@ -78,6 +78,7 @@ return [
                 'title' => 'Flats',
                 'management' => 'Flats management',
                 'number' => 'Flat #:number',
+                'edit' => 'Edit flat',
                 'import' => [
                     'title' => 'Import',
                     'description' => 'Import all flats from Excel file',

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Backend\Building\Flat;
 use App\Http\Requests\Backend\Building\Flat\ImportFlatsRequest;
 use App\Http\Requests\Backend\Building\Flat\ManageFlatRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Backend\Building\Flat\UpdateFlatRequest;
 use App\Models\Building\Flat\Flat;
+use App\Repositories\Backend\Access\User\UserRepositoryContract;
 use App\Repositories\Backend\Building\Flat\FlatRepositoryContract;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\Datatables\Facades\Datatables;
@@ -21,11 +23,18 @@ class FlatController extends Controller
     protected $flats;
 
     /**
-     * @param FlatRepositoryContract $flats
+     * @var UserRepositoryContract
      */
-    public function __construct(FlatRepositoryContract $flats)
+    protected $users;
+
+    /**
+     * @param FlatRepositoryContract $flats
+     * @param UserRepositoryContract $users
+     */
+    public function __construct(FlatRepositoryContract $flats, UserRepositoryContract $users)
     {
         $this->flats = $flats;
+        $this->users = $users;
     }
 
 	/**
@@ -88,5 +97,27 @@ class FlatController extends Controller
 
     public function view(Flat $flat) {
         return view('backend.building.flat.view')->withFlat($flat);
+    }
+
+    /**
+     * @param Flat $flat
+     * @param ManageFlatRequest $request
+     * @return mixed
+     */
+    public function edit(Flat $flat, ManageFlatRequest $request)
+    {
+        return view('backend.building.flat.edit')
+            ->withFlat($flat);
+    }
+
+    /**
+     * @param Flat $flat
+     * @param UpdateFlatRequest $request
+     * @return mixed
+     */
+    public function update(Flat $flat, UpdateFlatRequest $request)
+    {
+        $this->flats->update($flat, $request->all());
+        return redirect()->route('admin.building.flat.view', $flat)->withFlashSuccess(trans('alerts.backend.flats.updated'));
     }
 }

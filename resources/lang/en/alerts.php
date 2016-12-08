@@ -31,7 +31,8 @@ return [
         ],
 
         'flats' => [
-            'imported' => 'Flats were successfully imported'
+            'imported' => 'Flats were successfully imported',
+            'updated' => 'Flat was successfully updated',
         ]
     ],
 ];

@@ -80,4 +80,12 @@ interface UserRepositoryContract
 	 * @return mixed
 	 */
 	public function flushTempSession();
+
+
+    /**
+     * @param  string  $order_by
+     * @param  string  $sort
+     * @return mixed
+     */
+    public function getAllUsers($order_by = 'name', $sort = 'asc');
 }

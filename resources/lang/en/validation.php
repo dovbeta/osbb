@@ -147,6 +147,16 @@ return [
                     'send_confirmation_email' => 'Send Confirmation E-mail',
                 ],
             ],
+            'building' => [
+                'flats' => [
+                    'number' => 'Flat number',
+                    'entrance' => 'Entrance',
+                    'floor' => 'Floor',
+                    'area' => 'Area',
+                    'rooms_number' => 'Rooms',
+                    'users' => 'Users',
+                ]
+            ]
         ],
 
         'frontend' => [

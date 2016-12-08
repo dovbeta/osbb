@@ -407,4 +407,15 @@ class EloquentUserRepository implements UserRepositoryContract
         $user->confirmed         = isset($input['confirmed']) ? 1 : 0;
         return $user;
     }
+
+    /**
+     * @param  string  $order_by
+     * @param  string  $sort
+     * @return mixed
+     */
+    public function getAllUsers($order_by = 'name', $sort = 'asc')
+    {
+        return User::orderBy($order_by, $sort)
+            ->get();
+    }
 }

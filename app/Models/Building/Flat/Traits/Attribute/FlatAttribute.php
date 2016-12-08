@@ -15,6 +15,13 @@ trait FlatAttribute
     {
         return '<a href="' . route('admin.building.flat.view', $this) . '" class="btn btn-xs btn-primary"><i class="fa fa-home" data-toggle="tooltip" data-placement="top" title="' . trans('buttons.general.crud.view') . '"></i></a> ';
     }
+    /**
+     * @return string
+     */
+    public function getEditButtonAttribute()
+    {
+        return '<a href="' . route('admin.building.flat.edit', $this) . '" class="btn btn-xs btn-primary"><i class="fa fa-edit" data-toggle="tooltip" data-placement="top" title="' . trans('buttons.general.crud.edit') . '"></i></a> ';
+    }
 
     /**
      * @return string
@@ -22,6 +29,7 @@ trait FlatAttribute
     public function getActionButtonsAttribute()
     {
         return
-            $this->getShowButtonAttribute();
+            $this->getShowButtonAttribute() .
+            $this->getEditButtonAttribute();
     }
 }
